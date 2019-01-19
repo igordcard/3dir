@@ -1,0 +1,13 @@
+{
+        "json.schemas": [
+        {
+            "fileMatch": [
+                "/manifest.json"
+            ],
+            "url": "http://json.schemastore.org/chrome-manifest"
+        },
+    ],
+    "files.trimFinalNewlines": false,
+    "files.insertFinalNewline": true,
+    "files.eol": "\n"
+}
