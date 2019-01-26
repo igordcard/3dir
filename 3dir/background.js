@@ -13,7 +13,8 @@ chrome.downloads.onDeterminingFilename.addListener(
         console.log("A new download has started: " + downloadItem.url);
 
         domainName = getDomainName(downloadItem.url);
-        fileName = getFileName(downloadItem.url);
+        //fileName = getFileName(downloadItem.url);
+        fileName = downloadItem.filename;
 
         suggest({filename: domainName + "/" + fileName});
     }
