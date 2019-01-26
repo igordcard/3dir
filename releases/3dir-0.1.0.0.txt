@@ -1,0 +1,8 @@
+This is 3Dir: an extension that dynamically moves/renames your downloads to directories according to your specified criteria.
+
+This is a pre-alpha release. It only does 1 thing:
+- always moves your download to a folder named the same as the domain name of download's URL
+
+This has been tested for normal binary downloads and for webpages downloaded using the "Save Page WE" Chrome extension. CTRL+S behavior is not overridden.
+
+Feedback is welcome: do it at the project's GitHub page (click Website ->).
