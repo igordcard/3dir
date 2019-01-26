@@ -1,8 +1,8 @@
 {
-    "name": "3Dir (Dynamic Download Directories)",
+    "name": "3Dir - Dynamic Download Directories (pre-alpha)",
     "short_name": "3Dir",
-    "description": "Dynamic Download Directories",
-    "version": "0.1.0",
+    "description": "Dynamic Download Directories (pre-alpha)",
+    "version": "0.1.0.0",
     "options_page": "options.html",
     "manifest_version": 2,
     "permissions": ["declarativeContent", "downloads"],
