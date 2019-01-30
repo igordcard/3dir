@@ -1,3 +1,5 @@
+var topDir = "3dir"
+
 function getDomainName(url) {
     // TODO rough version for now
     return url.split('//')[1].split('/')[0].split(':')[0].split('?')[0];
@@ -16,6 +18,6 @@ chrome.downloads.onDeterminingFilename.addListener(
         //fileName = getFileName(downloadItem.url);
         fileName = downloadItem.filename;
 
-        suggest({filename: domainName + "/" + fileName});
+        suggest({filename: topDir + "/" + domainName + "/" + fileName});
     }
 )
