@@ -8,4 +8,9 @@ document.getElementById("subdir").addEventListener('change', (event) => {
             console.log("Not using 3dir subdirectory.");
         });
     }
-  })
+});
+
+chrome.storage.sync.get(['subdir'], function(result) {
+    useTopDir = result.subdir
+    document.getElementById("subdir").checked = useTopDir;
+});
