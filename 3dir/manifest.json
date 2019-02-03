@@ -5,7 +5,7 @@
     "version": "0.1.0.0",
     "options_page": "options.html",
     "manifest_version": 2,
-    "permissions": ["declarativeContent", "downloads"],
+    "permissions": ["declarativeContent", "downloads", "storage"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
