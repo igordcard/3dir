@@ -8,10 +8,22 @@ function getFileName(url) {
     return url.split('/').pop();
 }
 
+function getIgorsDate(d) {
+        var month = "0" + (d.getMonth()+1);
+        month = month.substring(month.length - 2);
+        var day = "0" + d.getDate();
+        day = day.substring(day.length -2 );
+
+        return "".concat(d.getFullYear(), month, day);
+}
+
 chrome.downloads.onDeterminingFilename.addListener(
     function(downloadItem, suggest) {
         var useTopDir = false // will be set by options
+        var useDateDir = false // will be set by options TODO
         var topDir = "3dir"   // will be set by options
+        var d = new Date();
+        var dateDir = getIgorsDate(d);
 
         console.log("A new download has started: " + downloadItem.url);
 
@@ -19,11 +31,15 @@ chrome.downloads.onDeterminingFilename.addListener(
         chrome.storage.sync.get(['subdir'], function(result) {
             useTopDir = result.subdir
 
-            domainName = getDomainName(downloadItem.url);
+            var domainName = getDomainName(downloadItem.url);
             //fileName = getFileName(downloadItem.url);
-            fileName = downloadItem.filename;
+            var fileName = downloadItem.filename;
 
-            filePath = domainName + "/" + fileName;
+            var filePath = domainName + "/" + fileName;
+
+            if(useDateDir) {
+                filePath = dateDir + "/" + filePath;
+            }
 
             if(useTopDir) {
                 filePath = topDir + "/" + filePath;
