@@ -19,17 +19,20 @@ function getIgorsDate(d) {
 
 chrome.downloads.onDeterminingFilename.addListener(
     function(downloadItem, suggest) {
-        var useTopDir = false // will be set by options
+        var useTopDir = false  // will be set by options
+        var useSecond = false  // will be set by options
         var useDateDir = false // will be set by options TODO
-        var topDir = "3dir"   // will be set by options
+        var topDir = "3dir"    // will be set by options
+        var secondDir = "cd"  // will be set by options TODO
         var d = new Date();
         var dateDir = getIgorsDate(d);
 
         console.log("A new download has started: " + downloadItem.url);
 
         // async
-        chrome.storage.sync.get(['subdir'], function(result) {
+        chrome.storage.sync.get(['subdir', 'secondary'], function(result) {
             useTopDir = result.subdir
+            useSecond = result.secondary
 
             var domainName = getDomainName(downloadItem.url);
             //fileName = getFileName(downloadItem.url);
@@ -42,7 +45,12 @@ chrome.downloads.onDeterminingFilename.addListener(
             }
 
             if(useTopDir) {
-                filePath = topDir + "/" + filePath;
+                if(useSecond) {
+                    filePath = secondDir + "/" + filePath;
+                }
+                else {
+                    filePath = topDir + "/" + filePath;
+                }
             }
 
             suggest({filename: filePath});
