@@ -2,10 +2,10 @@
     "name": "3Dir (Dynamic Download Directories)",
     "short_name": "3Dir",
     "description": "Dynamic Download Directories (pre-alpha)",
-    "version": "0.1.1.0",
+    "version": "0.1.1.1",
     "options_page": "options.html",
-    "manifest_version": 2,
-    "permissions": ["declarativeContent", "downloads", "storage"],
+    "manifest_version": 3,
+    "permissions": ["downloads", "storage"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
